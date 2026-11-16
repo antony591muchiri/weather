@@ -1,0 +1,36 @@
+:root{
+  --bg:#dfe4ec; --body:#f6f7fa; --screen:#ffffff; --text:#1b2030; --muted:#6b7389;
+  --key:#ffffff; --key-text:#1b2030; --fn:#e8ebf2; --op:#dfe3ff; --op-text:#2d3bb8;
+  --accent:#3445d6; --accent-text:#ffffff; --shadow:rgba(27,32,48,.12);
+  color-scheme:light;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0f121a; --body:#171b26; --screen:#101420; --text:#eef0f8; --muted:#8a93ab;
+    --key:#242a3a; --key-text:#eef0f8; --fn:#1f2433; --op:#2c3361; --op-text:#b4bcff;
+    --accent:#8f9cff; --accent-text:#10132b; --shadow:rgba(0,0,0,.5); color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0f121a; --body:#171b26; --screen:#101420; --text:#eef0f8; --muted:#8a93ab;
+  --key:#242a3a; --key-text:#eef0f8; --fn:#1f2433; --op:#2c3361; --op-text:#b4bcff;
+  --accent:#8f9cff; --accent-text:#10132b; --shadow:rgba(0,0,0,.5); color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{background:var(--bg);color:var(--text);font-family:"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;display:grid;place-items:center;padding:16px}
+.calc{width:100%;max-width:360px;background:var(--body);border-radius:28px;padding:16px;box-shadow:0 24px 60px var(--shadow)}
+.screen{background:var(--screen);border-radius:18px;padding:16px 18px;height:132px;display:flex;flex-direction:column;justify-content:flex-end;align-items:flex-end;overflow:hidden;margin-bottom:14px}
+.expr{min-height:1.4em;color:var(--muted);font-size:16px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.value{font-size:52px;font-weight:500;letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1.1;white-space:nowrap}
+.keys{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+button{font:inherit;font-size:22px;font-weight:500;height:62px;border:0;border-radius:16px;background:var(--key);color:var(--key-text);cursor:pointer;box-shadow:0 1px 0 var(--shadow);transition:transform .08s,filter .12s}
+button:active{transform:scale(.95)}
+button:hover{filter:brightness(.97)}
+button:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.fn{background:var(--fn);color:var(--muted)}
+.op{background:var(--op);color:var(--op-text)}
+.op.on{background:var(--accent);color:var(--accent-text)}
+.eq{background:var(--accent);color:var(--accent-text);font-weight:700}
+@media (prefers-reduced-motion:reduce){button{transition:none}}
